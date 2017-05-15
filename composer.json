@@ -12,6 +12,7 @@
         "learninglocker/statementfactory": "~0.0"
     },
     "require": {
-        "rusticisoftware/tincan": "0.12.*"
+        "php": "~5.5 || ^7.0.3",
+        "rusticisoftware/tincan": "1.0.0",
     }
 }
