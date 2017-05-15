@@ -13,6 +13,6 @@
     },
     "require": {
         "php": "~5.5 || ^7.0.3",
-        "rusticisoftware/tincan": "1.0.0",
+        "rusticisoftware/tincan": "1.0.0"
     }
 }
