@@ -1,7 +1,7 @@
 <?php namespace XREmitter\Tests;
 use \XREmitter\Events\ScormStatusSubmitted as Event;
 
-class ScormStatusSubmittedTest extends EventTest {
+class ScormStatusSubmittedTest extends ScormEventTest {
     protected static $recipe_name = 'scorm_status_submitted';
 
     /**

@@ -1,7 +1,7 @@
 <?php namespace XREmitter\Tests;
 use \XREmitter\Events\ScormScoreRawSubmitted as Event;
 
-class ScormScorerawSubmittedTest extends EventTest {
+class ScormScoreRawSubmittedTest extends ScormEventTest {
     protected static $recipe_name = 'scorm_scoreraw_submitted';
 
     /**
