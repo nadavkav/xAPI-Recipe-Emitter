@@ -1,5 +1,5 @@
 <?php namespace XREmitter\Tests;
-use \XREmitter\Events\ScormScorerawSubmitted as Event;
+use \XREmitter\Events\ScormScoreRawSubmitted as Event;
 
 class ScormScorerawSubmittedTest extends EventTest {
     protected static $recipe_name = 'scorm_scoreraw_submitted';

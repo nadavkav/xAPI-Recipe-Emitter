@@ -1,6 +1,6 @@
 <?php namespace XREmitter\Events;
 
-class ScormStatusSubmitted extends Event {
+class ScormStatusSubmitted extends ScormEvent {
     protected static $verb_display = [
         'en' => 'completed'
     ];
@@ -16,15 +16,6 @@ class ScormStatusSubmitted extends Event {
             'verb' => [
                 'id' => 'http://adlnet.gov/expapi/verbs/completed',
                 'display' => $this->readVerbDisplay($opts),
-            ],
-            'object' => $this->readModule($opts),
-            'context' => [
-                'contextActivities' => [
-                    'grouping' => [
-                        $this->readCourse($opts),
-                        $this->readScormScoes($opts),
-                    ],
-                ],
             ],
         ]);
     }

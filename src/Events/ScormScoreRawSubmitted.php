@@ -1,6 +1,6 @@
 <?php namespace XREmitter\Events;
 
-class ScormScorerawSubmitted extends Event {
+class ScormScoreRawSubmitted extends ScormEvent {
     protected static $verb_display;
 
     /**
@@ -18,15 +18,6 @@ class ScormScorerawSubmitted extends Event {
                     'min' => $opts['scorm_score_min'],
                     'max' => $opts['scorm_score_max'],
                     'scaled' => $opts['scorm_score_scaled']
-                ],
-            ],
-            'object' => $this->readModule($opts),
-            'context' => [
-                'contextActivities' => [
-                    'grouping' => [
-                        $this->readCourse($opts),
-                        $this->readScormScoes($opts),
-                    ],
                 ],
             ],
         ]);
