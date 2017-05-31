@@ -8,7 +8,7 @@ class ScormEvent extends Event {
      * @override Event
      */
     public function read(array $opts) {
-        return array_merge_recursive(parent::read($opts), [
+        return array_merge(parent::read($opts), [
             'object' => $this->readModule($opts),
             'context' => [
                 'contextActivities' => [

@@ -2,7 +2,6 @@
 use \XREmitter\Events\ScormEvent as Event;
 
 class ScormEventTest extends EventTest {
-    protected static $recipe_name = 'scorm_event';
 
     /**
      * Sets up the tests.
@@ -13,13 +12,13 @@ class ScormEventTest extends EventTest {
     }
 
     protected function constructInput() {
-        return array_merge_recursive(
-            parent::constructInput(), [
+        return array_merge(
+            parent::constructInput(),
             $this->contructObject('course'),
             $this->contructObject('module'),
             $this->constructScormTracking(),
             $this->constructScormScoes()
-        ]);
+        );
     }
 
     protected function constructScormTracking() {
