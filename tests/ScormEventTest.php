@@ -2,6 +2,7 @@
 use \XREmitter\Events\ScormEvent as Event;
 
 class ScormEventTest extends EventTest {
+    protected static $recipe_name = 'scorm_event';
 
     /**
      * Sets up the tests.
@@ -39,6 +40,13 @@ class ScormEventTest extends EventTest {
             'scorm_scoes_name' => 'Sco name',
             'scorm_scoes_description' => 'Sco Description',
         ];
+    }
+
+    protected function assertOutput($input, $output) {
+        $this->assertUser($input, $output['actor'], 'user');
+        $this->assertObject('course', $input, $output['context']['contextActivities']['grouping'][0]);
+        $this->assertObject('module', $input, $output['object']);
+        $this->assertObject('scorm_scoes', $input, $output['context']['contextActivities']['grouping'][1]);
     }
 
 }
