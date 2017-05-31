@@ -1,7 +1,7 @@
 <?php namespace XREmitter\Tests;
 use \XREmitter\Events\ScormEvent as Event;
 
-class ScormEventTest extends ModuleViewedTest {
+class ScormEventTest extends EventTest {
     protected static $recipe_name = 'scorm_event';
 
     /**
@@ -13,16 +13,12 @@ class ScormEventTest extends ModuleViewedTest {
     }
 
     protected function constructInput() {
-        return array_merge(parent::constructInput(), [
-            'scorm_scoes_track' => [
-                'status' => 'completed',
-            ],
-            'cmi_data' => [
-                'cmivalue' => 'completed',
-                'cmielement' => 'cmi.core.lesson_status',
-                'attemptid' => 2,
-            ],
-            'scorm_scoes' => $this->constructScormScoes(),
+        return array_merge_recursive(
+            parent::constructInput(), [
+            $this->contructObject('course'),
+            $this->contructObject('module'),
+            $this->constructScormTracking(),
+            $this->constructScormScoes()
         ]);
     }
 
@@ -40,10 +36,17 @@ class ScormEventTest extends ModuleViewedTest {
         return [
             'scorm_scoes_id' =>  1,
             'scorm_scoes_url' =>  'http://www.example.com/module_url',
-            'scorm_scoes_type' => static::$xapi_type.'sco',
+            'scorm_scoes_type' => static::$xapi_type. 'sco',
             'scorm_scoes_name' => 'Sco name',
             'scorm_scoes_description' => 'Sco Description',
         ];
     }
 
+    protected function assertOutput($input, $output) {
+        parent::assertOutput($input, $output);
+        $this->assertVerb('http://adlnet.gov/expapi/verbs/completed', 'completed', $output['verb']);
+        $this->assertObject('module', $input, $output['object']);
+        $this->assertObject('course', $input, $output['context']['contextActivities']['grouping'][1]);
+        $this->assertObject('scorm_scoes', $input, $output['context']['contextActivities']['grouping'][2]);
+    }
 }

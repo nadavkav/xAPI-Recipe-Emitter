@@ -1,6 +1,6 @@
 <?php namespace XREmitter\Events;
 
-class ScormEvent extends ModuleViewed {
+class ScormEvent extends Event {
     /**
      * Reads data for an event.
      * @param [String => Mixed] $opts
