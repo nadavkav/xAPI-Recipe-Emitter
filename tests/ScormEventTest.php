@@ -36,7 +36,7 @@ class ScormEventTest extends EventTest {
         return [
             'scorm_scoes_id' =>  1,
             'scorm_scoes_url' =>  'http://www.example.com/module_url',
-            'scorm_scoes_type' => static::$xapi_type. 'sco',
+            'scorm_scoes_type' => static::$xapiType. 'sco',
             'scorm_scoes_name' => 'Sco name',
             'scorm_scoes_description' => 'Sco Description',
         ];
