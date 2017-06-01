@@ -4,7 +4,7 @@ use \XREmitter\Events\Event as Event;
 use \Locker\XApi\Statement as Statement;
 
 abstract class EventTest extends PhpUnitTestCase {
-    protected static $xapi_type = 'http://lrs.learninglocker.net/define/type/moodle/';
+    protected static $xapiType = 'http://lrs.learninglocker.net/define/type/moodle/';
     protected static $recipe_name;
     protected $repo;
 
@@ -65,7 +65,7 @@ abstract class EventTest extends PhpUnitTestCase {
 
     protected function contructObject($type, $xapiType = null) {
         if (is_null($xapiType)){
-            $xapiType = static::$xapi_type.$type;
+            $xapiType = static::$xapiType.$type;
         }
         return [
             $type.'_url' => 'http://www.example.com/'.$type.'_url',
@@ -106,7 +106,7 @@ abstract class EventTest extends PhpUnitTestCase {
     protected function constructAttempt() {
         return [
             'attempt_url' => 'http://www.example.com/attempt_url',
-            'attempt_type' => static::$xapi_type.'attempt',
+            'attempt_type' => static::$xapiType.'attempt',
             'attempt_ext' => [
                 'test_attempt_ext_key' => 'test_attempt_ext_value',
             ],
@@ -120,7 +120,7 @@ abstract class EventTest extends PhpUnitTestCase {
             'discussion_url' => 'http://www.example.com/discussion_url',
             'discussion_name' => 'A Forum Post',
             'discussion_description' => 'A description of the forum',
-            'discussion_type' => static::$xapi_type.'discussion',
+            'discussion_type' => static::$xapiType.'discussion',
             'discussion_ext_key' => 'http://www.example.com/attempt_ext_key',
             'discussion_ext' => [
                 'discussion_ext_key' => 'discussion_ext_value',

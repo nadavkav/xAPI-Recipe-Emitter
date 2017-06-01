@@ -148,4 +148,5 @@ abstract class Event extends PhpObj {
         $lang = isset(static::$verb_display[$lang]) ? $lang : array_keys(static::$verb_display)[0];
         return [$lang => static::$verb_display[$lang]];
     }
+
 }
