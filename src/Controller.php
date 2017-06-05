@@ -23,7 +23,8 @@ class Controller extends PhpObj {
         'training_session_enrol' => 'EventEnrol',
         'training_session_unenrol' => 'EventUnenrol',
         'scorm_scoreraw_submitted' => 'ScormScoreRawSubmitted',
-        'scorm_status_submitted' => 'ScormStatusSubmitted'
+        'scorm_status_submitted' => 'ScormStatusSubmitted',
+        'hvp_xapi' => 'H5PxAPIEvent'
     ];
 
     /**
